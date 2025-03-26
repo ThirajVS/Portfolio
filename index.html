@@ -4,15 +4,11 @@
   <meta charset="UTF-8" />
   <title>Thiraj V S - Animated Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap"
     rel="stylesheet"
   />
   <style>
-    /* ===========================
-       1. GLOBAL RESETS & BASICS
-       =========================== */
     * {
       margin: 0;
       padding: 0;
@@ -37,10 +33,6 @@
       text-decoration: none;
       color: inherit;
     }
-
-    /* ===========================
-       2. NAVBAR
-       =========================== */
     nav {
       background: linear-gradient(45deg, #00c6ff, #0072ff);
       display: flex;
@@ -63,7 +55,6 @@
     .nav-links {
       list-style: none;
       display: flex;
-      /* The line below is the desktop margin that we'll override on mobile */
       margin-left: 550px;
       gap: 20px;
     }
@@ -79,10 +70,6 @@
       background: rgba(255, 255, 255, 0.2);
       border-radius: 4px;
     }
-
-    /* ===========================
-       3. HERO / INTRO SECTION
-       =========================== */
     header {
       margin-bottom: 80px;
     }
@@ -134,10 +121,6 @@
       animation: floatArrow 2s ease-in-out infinite;
       cursor: pointer;
     }
-
-    /* ===========================
-       4. ABOUT SECTION
-       =========================== */
     section {
       padding: 60px 20px;
       max-width: 1200px;
@@ -160,10 +143,6 @@
       margin-bottom: 10px;
       color: #0072ff;
     }
-
-    /* ===========================
-       5. EDUCATION & PROJECTS
-       =========================== */
     .edu-projects-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -224,10 +203,6 @@
       flex-direction: column;
       justify-content: center;
     }
-
-    /* ===========================
-       6. SKILLS SECTION (ICONS)
-       =========================== */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -261,10 +236,6 @@
       margin-top: 5px;
       color: #333;
     }
-
-    /* ===========================
-       7. CONTACT & FOOTER
-       =========================== */
     .contact-box {
       background: rgba(255,255,255, 0.9);
       border-radius: 8px;
@@ -287,10 +258,6 @@
       background: linear-gradient(45deg, #00c6ff, #0072ff);
       margin-top: 40px;
     }
-
-    /* ===========================
-       8. KEYFRAMES & ANIMATIONS
-       =========================== */
     @keyframes bgShift {
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
@@ -320,15 +287,8 @@
       0%, 100% { box-shadow: 0 0 5px #fff; }
       50% { box-shadow: 0 0 20px #fff; }
     }
-
-    /* ===========================
-       9. MEDIA QUERIES
-       =========================== */
-
-    /* For screens <= 768px */
     @media (max-width: 768px) {
       .nav-links {
-        /* Hide the big desktop nav & use vertical menu instead */
         display: none;
         flex-direction: column;
         position: absolute;
@@ -338,7 +298,7 @@
         width: 200px;
         border-radius: 4px;
         padding: 10px;
-        margin-left: 0 !important; /* override the 550px margin */
+        margin-left: 0 !important;
       }
       .nav-links.active {
         display: flex;
@@ -348,14 +308,11 @@
         flex-direction: column;
         cursor: pointer;
       }
-      /* Also ensure the hero title is smaller/wraps on narrow screens */
       .hero-title {
         font-size: 28px;
-        width: 16ch; /* narrower typed effect for smaller screens */
+        width: 16ch;
       }
     }
-
-    /* For screens <= 480px (very small phones) */
     @media (max-width: 480px) {
       .edu-projects-container {
         grid-template-columns: 1fr;
@@ -363,7 +320,6 @@
       .edu-card, .project-card {
         height: auto;
       }
-      /* Further reduce hero title if needed */
       .hero-title {
         font-size: 24px;
         width: 14ch;
@@ -371,6 +327,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- NAV -->
   <nav>
