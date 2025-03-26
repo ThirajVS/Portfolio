@@ -20,9 +20,9 @@
     body {
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
-      background: linear-gradient(270deg, #f00, #0f0, #00f);
-      background-size: 600% 600%;
-      animation: bgShift 10s ease infinite;
+      background: linear-gradient(-45deg, #ffe2e2, #d9d4f0, #ffe6cc, #fff4f4);
+      background-size: 400% 400%;
+      animation: bgShift 12s ease infinite;
       color: #333;
     }
     img {
@@ -259,8 +259,9 @@
       margin-top: 40px;
     }
     @keyframes bgShift {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+	  0% { background-position: 0% 50%; }
+	  50% { background-position: 100% 50%; }
+	  100% { background-position: 0% 50%; }
     }
     @keyframes pulseBrand {
       0% { transform: scale(1); }
