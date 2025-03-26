@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thiraj V S - Animated Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(270deg, #f00, #0f0, #00f);
+      background-size: 600% 600%;
+      animation: bgShift 10s ease infinite;
+      color: #333;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transform-origin: center center;
+      animation: pulseBrand 1.5s ease-in-out infinite alternate;
+    }
+    nav .logo a {
+      font-size: 24px;
+      font-weight: 600;
+      margin-left: 25px;
+      color: #fff;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin-left: 550px;
+      gap: 20px;
+    }
+    .nav-links li {
+      margin-left: 30px;
+    }
+    .nav-links a {
+      color: #fff;
+      padding: 8px 12px;
+      transition: background 0.3s ease-in-out;
+    }
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    header {
+      margin-bottom: 80px; 
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-title {
+      font-size: 40px;
+      color: #fff;
+      margin-bottom: 10px;
+      white-space: nowrap;
+      border-right: 3px solid #fff;
+      width: 20ch;
+      overflow: hidden;
+      animation: typing 4s steps(20) 1s 1 normal forwards,
+                 blinkCursor 0.8s infinite step-end alternate;
+    }
+    .hero-subtitle {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      opacity: 0;
+      animation: fadeIn 2s ease-in 2s forwards;
+    }
+    .hero-btn {
+      background: #fff;
+      color: #0072ff;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+    }
+    .hero-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    }
+    /* Floating arrow effect */
+    .scroll-arrow {
+      position: absolute;
+      bottom: 20px;
+      font-size: 30px;
+      color: #fff;
+      animation: floatArrow 2s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-box {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 40px;
+      position: relative;
+      clip-path: circle(100% at 50% 50%);
+      transition: clip-path 0.5s ease;
+    }
+    .about-box:hover {
+      clip-path: circle(70% at 50% 50%);
+    }
+    .about-box h2 {
+      margin-bottom: 10px;
+      color: #0072ff;
+    }
+
+    .edu-projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+      perspective: 1000px;
+    }
+    .edu-card, .project-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.6s ease-out;
+      transform-style: preserve-3d;
+      width: 100%;
+      height: 250px;
+      min-height: 220px;
+    }
+
+    .edu-card:hover, .project-card:hover {
+      transform: rotateY(180deg);
+    }
+    .edu-card h3, .project-card h3 {
+      margin-bottom: 10px;
+      color: #0072ff;
+    }
+    .edu-card p, .project-card p {
+      margin-bottom: 5px;
+    }
+    .card-face-back h3 {
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .card-face-back p {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card-face-front {
+      background: #fff;
+      transform: rotateY(0deg);
+    }
+    .card-face-back {
+      background: #0072ff;
+      color: #fff;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .skill-item {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+    .skill-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+    .skill-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .skill-item:hover img {
+      transform: rotate(360deg);
+    }
+    .skill-item h4 {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #333;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-top: 40px;
+      animation: glow 2s linear infinite alternate;
+    }
+    .contact-box h2 {
+      margin-bottom: 10px;
+      color: #0072ff;
+    }
+    .contact-box p {
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      color: #fff;
+      padding: 20px 0;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      margin-top: 40px;
+    }
+
+    @keyframes bgShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes pulseBrand {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.02); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes floatArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 20ch; }
+    }
+
+    @keyframes blinkCursor {
+      0% { border-color: transparent; }
+      50% { border-color: #fff; }
+      100% { border-color: transparent; }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px #fff; }
+      50% { box-shadow: 0 0 20px #fff; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        width: 200px;
+        border-radius: 4px;
+        padding: 10px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <a href="#">Thiraj V S</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education-projects">Education & Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <header id="hero">
+    <div class="hero">
+      <div class="hero-title">Hello, I'm Thiraj V S</div>
+      <div class="hero-subtitle">B.Tech in IT | Aspiring Software Developer and AI/ML Enthusiast</div>
+      <a href="#about" class="hero-btn">Discover More</a>
+      <div class="scroll-arrow">&#x2193;</div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="about-box">
+      <h2>About Me</h2>
+      <p>
+        I am Thiraj V S, an innovative IT student at Coimbatore Institute of Technology pursuing my B.Tech in Information Technology.
+        My passion for technology began early and has evolved into a career focused on programming, web development, and machine learning.
+      </p>
+      <p>
+        Whether it's building AI-based applications or crafting dynamic websites, I love solving complex problems with elegant solutions.
+        Always learning and innovating!
+      </p>
+    </div>
+  </section>
+
+  <section id="education-projects">
+    <div class="edu-projects-container">
+      <!-- Education Card -->
+      <div class="edu-card">
+        <!-- FRONT FACE -->
+        <div class="card-face card-face-front">
+          <h3>Coimbatore Institute of Technology</h3>
+          <p>Bachelor of Technology (B.Tech) in Information Technology</p>
+          <p><em>May 2027</em></p>
+        </div>
+        <div class="card-face card-face-back">
+          <h3>Academic Highlights</h3>
+          <p>Strong foundation in data structures, algorithms, AI & ML concepts, and web technologies.</p>
+          <p>Consistently exploring new fields like deep learning, data science, and devops tools.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-face card-face-front">
+          <h3>ImageBot</h3>
+          <p><strong>Dec 2024 – Present</strong></p>
+          <p><strong>Tech:</strong> Python, Flask, Torch, Torchvision, HTML, CSS, JavaScript, SQLAlchemy, MySQL, FuzzyWuzzy </p>
+        </div>
+        <div class="card-face card-face-back">
+          <h3>ImageBot Details</h3>
+          <p>AI-based web app to identify elephant species from images using Torch/Torchvision. Real-time predictions with a Flask backend.</p>
+          <p>Integrated FuzzyWuzzy for species info and MySQL for data storage. Deployed on a responsive UI with dynamic interactions.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-face card-face-front">
+          <h3>MentorHub</h3>
+          <p><strong>Nov 2024 – Jan 2025</strong></p>
+          <p><strong>Tech:</strong> HTML, CSS, JS, JSP, CGI</p>
+        </div>
+        <div class="card-face card-face-back">
+          <h3>MentorHub Details</h3>
+          <p>Responsive mentorship platform with dynamic mentor selection, secure login, and real-time data integration using JSP.</p>
+          <p>Developed CGI-based backend for form submissions, contact requests, and dynamic FAQ retrieval. Personalized user experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 style="text-align:center; color:#0072ff; margin-bottom:20px;">My Skills & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="pictures/java.jpg" alt="Java">
+        <h4>Java</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/c++.jpg" alt="C++">
+        <h4>C++</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/css.jpg" alt="CSS">
+        <h4>CSS</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/eclipse.jpg" alt="Eclipse">
+        <h4>Eclipse IDE</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/Flask.jpg" alt="Flask">
+        <h4>Flask</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/git.jpg" alt="Git">
+        <h4>Git</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/github.jpg" alt="GitHub">
+        <h4>GitHub</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/html.jpg" alt="HTML">
+        <h4>HTML</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/javascript.jpg" alt="JavaScript">
+        <h4>JavaScript</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/jupyter.jpg" alt="Jupyter">
+        <h4>Jupyter</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/keras.jpg" alt="Keras">
+        <h4>Keras</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/Matplotlib.jpg" alt="Matplotlib">
+        <h4>Matplotlib</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/MongoDB.jpg" alt="MongoDB">
+        <h4>MongoDB</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/MySQL.jpg" alt="MySQL">
+        <h4>MySQL</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/NumPy.jpg" alt="NumPy">
+        <h4>NumPy</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/Pandas.jpg" alt="Pandas">
+        <h4>Pandas</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/python.jpg" alt="Python">
+        <h4>Python</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/pytorch.jpg" alt="PyTorch">
+        <h4>PyTorch</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/scikit-learn.jpg" alt="scikit-learn">
+        <h4>Scikit-Learn</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/seaborn.jpg" alt="Seaborn">
+        <h4>Seaborn</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/sql.jpg" alt="SQL">
+        <h4>SQL</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/tensorflow.jpg" alt="TensorFlow">
+        <h4>TensorFlow</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/vs.jpg" alt="VS Code">
+        <h4>VS Code</h4>
+      </div>
+      <div class="skill-item">
+        <img src="pictures/xampp.jpg" alt="XAMPP">
+        <h4>XAMPP</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-box">
+      <h2>Contact Me</h2>
+      <p>If you'd like to get in touch, drop me a message. I'm always open to discussing projects, collaborations, or new ideas!</p>
+      <p><strong>Email:</strong> <a href="mailto:thirajvs.ugpro@gmail.com">thirajvs.ugpro@gmail.com</a></p>
+      <p><strong>Phone:</strong> +91 97918 98486</p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/ThirajVS" target="_blank">Link 🔗</a></p>
+      <p><strong>LinkedIn:</strong> <a href="http://www.linkedin.com/in/thirajvs" target="_blank">Link 🔗</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Thiraj V S. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+
+    const scrollArrow = document.querySelector('.scroll-arrow');
+    if (scrollArrow) {
+      scrollArrow.addEventListener('click', () => {
+        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.navbar .logo a {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+}
+.navbar .nav-links li {
+  margin-left: 20px;
+}
+.navbar .nav-links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 12px;
+  transition: background-color 0.3s;
+}
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: #fff;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+
+/* Sections */
+section {
+  padding: 100px 20px;
+  margin-top: 70px; /* Offset for fixed navbar */
+}
+
+/* About Section */
+.about {
+
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.card {
+
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Education Section */
+.education .card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+/* Remove extra top padding from education section only */
+.education {
+  padding-top: 10px;
+}
+
+/* Technical Skills Section */
+.technical-skills {
+  margin-bottom: 40px;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.skills-grid .card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.skills-grid .card h3 {
+  margin-bottom: 10px;
+}
+
+.skills-grid ul {
+  list-style-position: outside;
+  padding-left: 25px; /* Adjust this value as needed */
+}
+
+.skills-grid ul li {
+  padding-left: 5px;  /* Optional: Add slight space between bullet and text */
+}
+
+
+
+/* Projects Section */
+.projects .project-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+.project-card h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.project-card ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* Keep section spacing, but remove top padding for .education */
+section {
+  padding: 60px 20px;
+  margin-top: 70px;
+}
+
+.education {
+  padding-top: 0; /* ✅ remove vertical gap above */
+  margin-top: 0px; /* ✅ gently pull up closer to About */
+}
+
+.about {
+  margin-bottom: 0; /* ✅ no negative margin needed */
+}
+
+
+/* Tighter box spacing for About and Education */
+.about,
+.education .card,
+.projects .project-card,
+.skills-grid .card {
+  margin-bottom: 20px;
+}
+
+/* Grid alignment fix for projects */
+.projects .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Better typography & alignment in cards */
+.card, .project-card, .about {
+  line-height: 1.5;
+}
+
+/* Optional: reduce padding slightly for a tighter feel */
+.about, .education .card, .skills-grid .card, .project-card {
+  padding: 20px;
+}
+
+/* Projects heading alignment */
+.projects h2 {
+  margin-bottom: 10px;
+}
+
+/* Project-card spacing fix */
+.project-card h3 {
+  font-size: 1.3em;
+  display: block;
+  margin-bottom: 5px;
+}
+.project-card ul {
+  margin-top: 10px;
+}
+
+/* Container tighter width on large screens */
+.container {
+  max-width: 1100px;
+}
+
+/* Consistent heading spacing */
+h1, h2, h3 {
+  margin-bottom: 10px;
+}
+
+/* Animate on Scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    width: 200px;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  .nav-links.active {
+    display: flex;s
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
