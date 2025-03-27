@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <title>Thiraj V S - Animated Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -35,28 +32,25 @@
     }
     nav {
       background: linear-gradient(45deg, #fcb69f, #a18cd1);
-
       display: flex;
-      justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      transform-origin: center center;
       animation: pulseBrand 1.5s ease-in-out infinite alternate;
     }
     nav .logo a {
       font-size: 24px;
       font-weight: 600;
-      margin-left: 25px;
+      margin-right: 20px;
       color: #fff;
     }
     .nav-links {
       list-style: none;
       display: flex;
-      margin-left: 550px;
+      margin-left: auto;
       gap: 20px;
     }
     .nav-links li {
@@ -73,15 +67,17 @@
     }
     header {
       margin-bottom: 80px;
+      padding-top: 70px;
     }
     .hero {
-      min-height: 100vh;
+      min-height: 70vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       position: relative;
       overflow: hidden;
+  padding: 40px 20px;
     }
     .hero-title {
       font-size: 40px;
@@ -173,14 +169,6 @@
     .edu-card p, .project-card p {
       margin-bottom: 5px;
     }
-    .card-face-back h3 {
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .card-face-back p {
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
     .card-face {
       position: absolute;
       width: 100%;
@@ -203,6 +191,14 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+    .card-face-back h3 {
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .card-face-back p {
+      margin-bottom: 8px;
+      line-height: 1.4;
     }
     .skills-grid {
       display: grid;
@@ -257,13 +253,12 @@
       color: #fff;
       padding: 20px 0;
       background: linear-gradient(45deg, #fcb69f, #a18cd1);
-
       margin-top: 40px;
     }
     @keyframes bgShift {
-	  0% { background-position: 0% 50%; }
-	  50% { background-position: 100% 50%; }
-	  100% { background-position: 0% 50%; }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     @keyframes pulseBrand {
       0% { transform: scale(1); }
@@ -290,26 +285,14 @@
       0%, 100% { box-shadow: 0 0 5px #fff; }
       50% { box-shadow: 0 0 20px #fff; }
     }
+    /* Responsive adjustments */
     @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
       .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: linear-gradient(45deg, #00c6ff, #0072ff);
-        width: 200px;
-        border-radius: 4px;
-        padding: 10px;
-        margin-left: 0 !important;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
+        margin: 10px 0 0 0;
       }
       .hero-title {
         font-size: 28px;
@@ -330,9 +313,7 @@
     }
   </style>
 </head>
-
 <body>
-  <!-- NAV -->
   <nav>
     <div class="logo">
       <a href="#">Thiraj V S</a>
@@ -344,14 +325,8 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
   </nav>
 
-  <!-- HERO -->
   <header id="hero">
     <div class="hero">
       <div class="hero-title">Hello, I'm Thiraj V S</div>
@@ -361,7 +336,6 @@
     </div>
   </header>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-box">
       <h2>About Me</h2>
@@ -376,7 +350,7 @@
     </div>
   </section>
 
-  <!-- EDUCATION & PROJECTS -->
+  <h2 style="text-align:center; color:#0072ff; margin-bottom:20px;">Education & Projects</h2>
   <section id="education-projects">
     <div class="edu-projects-container">
       <!-- Education Card -->
@@ -393,7 +367,6 @@
         </div>
       </div>
 
-      <!-- Project Card: ImageBot -->
       <div class="project-card">
         <div class="card-face card-face-front">
           <h3>ImageBot</h3>
@@ -407,7 +380,6 @@
         </div>
       </div>
 
-      <!-- Project Card: MentorHub -->
       <div class="project-card">
         <div class="card-face card-face-front">
           <h3>MentorHub</h3>
@@ -423,7 +395,6 @@
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
   <section id="skills">
     <h2 style="text-align:center; color:#0072ff; margin-bottom:20px;">My Skills & Tools</h2>
     <div class="skills-grid">
@@ -526,22 +497,12 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Thiraj V S. All rights reserved.</p>
   </footer>
 
   <script>
-    // Simple mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuToggle) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
-    }
-
-    // Scroll arrow click to about
+    // Scroll arrow click to "About" section
     const scrollArrow = document.querySelector('.scroll-arrow');
     if (scrollArrow) {
       scrollArrow.addEventListener('click', () => {
