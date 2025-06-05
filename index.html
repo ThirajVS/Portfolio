@@ -120,7 +120,7 @@
     }
     section {
       padding: 60px 20px;
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
     }
     .about-box {
@@ -141,11 +141,11 @@
       color: #0072ff;
     }
     .edu-projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-      perspective: 1000px;
+  	display: flex;
+  	justify-content: center;
+  	flex-wrap: nowrap;
+  	overflow-x: auto;
+  	gap: 20px;
     }
     .edu-card, .project-card {
       background: #fff;
@@ -155,8 +155,8 @@
       position: relative;
       transition: transform 0.6s ease-out;
       transform-style: preserve-3d;
-      width: 100%;
-      height: 250px;
+      height: 300px;
+      width: 900px;
       min-height: 220px;
     }
     .edu-card:hover, .project-card:hover {
@@ -202,7 +202,7 @@
     }
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
       gap: 20px;
       margin-top: 40px;
     }
@@ -210,7 +210,7 @@
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 15px;
+      padding: 20px;
       text-align: center;
       transition: all 0.3s ease-in-out;
     }
@@ -390,6 +390,19 @@
           <h3>MentorHub Details</h3>
           <p>Responsive mentorship platform with dynamic mentor selection, secure login, and real-time data integration using JSP.</p>
           <p>Developed CGI-based backend for form submissions, contact requests, and dynamic FAQ retrieval. Personalized user experiences.</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="window.open('https://thirajvs.github.io/MiniMar/', '_blank')" style="cursor: pointer;">
+        <div class="card-face card-face-front">
+          <h3>MiniMar</h3>
+          <p><strong>June 2025 2025 – Conituing</strong></p>
+          <p><strong>Tech:</strong> HTML, CSS, JS, JSP, CGI, Database, API</p>
+        </div>
+        <div class="card-face card-face-back">
+          <h3>MinMar Details</h3>
+          <p>Spontaneous and live tracked prices from various retailers with no intermediate comission. Take the best deals and save your money</p>
+          <p>Used database to store the customers data, API to give alerts on great deals and offers.</p>
         </div>
       </div>
     </div>
